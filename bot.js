@@ -6,13 +6,13 @@ const app = express();
 
 const data = {
   WBNB: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', //wbnb 
-  to_PURCHASE: '0xe9e7cea3dedca5984780bafc599bd69add087d56',  // token to purchase = BUSD for test
+  to_PURCHASE: '0xf7f5f99aa89629a62a29f543bdab6b40ef098abb',  // token to purchase = BUSD for test
   factory: '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73',  //PancakeSwap V2 factory
   router: '0x10ED43C718714eb63d5aA57B78B54704E256024E', //PancakeSwap V2 router
   recipient: '0x217C99d6e2E451bFD41781B877A8Fb6CcC6a6c85', //wallet address,
   AMOUNT_OF_WBNB : '0.01',
-  Slippage : '1', //in Percentage
-  gasPrice : '5', //in gwei
+  Slippage : '20', //in Percentage
+  gasPrice : '10', //in gwei
   gasLimit : '345684' //at least 21000
 }
 
@@ -85,7 +85,7 @@ const run = async () => {
      amountOutMin,
      [tokenIn, tokenOut],
      data.recipient,
-     Date.now() + 1000 * 60 * 10, //10 minutes
+     Date.now() + 1000, //10 minutes
      {
        'gasLimit': data.gasLimit,
        'gasPrice': ethers.utils.parseUnits(`${data.gasPrice}`, 'gwei')
